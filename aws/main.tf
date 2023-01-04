@@ -40,10 +40,24 @@ module "databricks_uc" {
       databricks = databricks.created_workspace
     }
   
-  resource_prefix             = local.prefix
-  databricks_workspace        = module.databricks_mws_workspace.workspace_id
-  uc_s3                       = aws_s3_bucket.unity_catalog_bucket.id
-  uc_iam_arn                  = aws_iam_role.unity_catalog_role.arn
-  uc_iam_name                 = aws_iam_role.unity_catalog_role.name
+  resource_prefix                 = local.prefix
+  databricks_workspace            = module.databricks_mws_workspace.workspace_id
+  uc_s3                           = aws_s3_bucket.unity_catalog_bucket.id
+  uc_iam_arn                      = aws_iam_role.unity_catalog_role.arn
+  uc_iam_name                     = aws_iam_role.unity_catalog_role.name
+  data_bucket                     = var.data_bucket
+  storage_credential_role_name    = aws_iam_role.storage_credential_role.name
+  storage_credential_role_arn     = aws_iam_role.storage_credential_role.arn
+  depends_on = [module.databricks_mws_workspace]
+}
+
+// Create Create Cluster & Instance Profile
+module "cluster_configuration" {
+    source = "./modules/cluster_configuration"
+    providers = {
+      databricks = databricks.created_workspace
+    }
+  
+  instance_profile = aws_iam_instance_profile.s3_instance_profile.arn
   depends_on = [module.databricks_mws_workspace]
 }

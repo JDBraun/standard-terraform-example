@@ -9,6 +9,7 @@ resource_prefix = "standard-terraform-example"
 aws_access_key = ""
 aws_secret_key = ""
 aws_account_id = ""
+data_bucket = ""
 
 // Dataplane Variables
 region = "us-east-1"

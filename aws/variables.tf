@@ -27,6 +27,10 @@ variable "aws_account_id" {
   type = string
 }
 
+variable "data_bucket" {
+  type = string
+}
+
 variable "resource_owner" {
   type = string
   sensitive = true
