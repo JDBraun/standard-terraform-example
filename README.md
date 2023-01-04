@@ -36,7 +36,7 @@
 
 2. Install [Terraform](https://developer.hashicorp.com/terraform/downloads)
 
-3. Fill out `example.tfvars` and place in `aws-wl` directory
+3. Fill out `example.tfvars` and place in `aws` directory
 
 5. CD into `aws`
 
