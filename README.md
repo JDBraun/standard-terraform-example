@@ -26,7 +26,7 @@
     - Data Engineering Cluster 
     - Instance Profile Registration
 
-- **Post Workspace Deployment:**
+- **Unity Catalog:**
     - Unity Catalog - Metastore
     - External Location 
 
